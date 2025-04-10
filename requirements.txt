@@ -1,0 +1,33 @@
+# Core libraries
+pandas>=1.3.0
+numpy>=1.21.0
+scikit-learn>=1.0.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
+tqdm>=4.62.0
+lightgbm>=3.3.0
+joblib>=1.1.0
+
+# Deep learning libraries
+torch>=1.10.0
+pytorch-lightning>=1.6.0
+# Note： If you want to accelerate the training of the MASTER model using Mac's MPS (Metal Performance Shaders), please upgrade torch to version 2.4.1
+
+# Data processing
+polars>=0.13.0
+
+# Additional utilities
+logging
+warnings
+gc
+
+# Custom wheel file (ensure the file is available locally or via a URL)
+rtdl_num_embeddings==0.0.11
+
+# Other dependencies
+re
+os
+sys
+collections
+math
+typing
