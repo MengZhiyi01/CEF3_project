@@ -1,0 +1,48 @@
+# IPCA with Lasso Feature Selection
+
+This repository contains Python code for implementing Instrumented Principal Component Analysis (IPCA) with Lasso feature selection for financial factor modeling. The implementation includes:
+
+1. Feature selection using Lasso regression to identify the most predictive characteristics
+2. Instrumented PCA estimation to extract latent factors from the selected characteristics
+3. Out-of-sample testing framework to evaluate model performance
+
+## Files
+
+1. `lasso_ipcamodel_30.py` - Main implementation script that:
+   - Loads and preprocesses financial data
+   - Performs Lasso feature selection
+   - Runs IPCA estimation
+   - Evaluates out-of-sample performance
+
+2. `ipca.py` - Core IPCA implementation class with:
+   - Alternating least squares estimation
+   - Various normalization options
+   - In-sample and out-of-sample estimation modes
+   - Performance evaluation metrics
+
+## Key Features
+
+- **Lasso Feature Selection**: Identifies the 15 most predictive features from 79 candidate characteristics using Lasso regression
+- **IPCA Model**: Estimates latent factors from selected characteristics while accounting for time-varying factor exposures
+- **Out-of-sample Testing**: Evaluates model performance on held-out data using recursive estimation windows
+- **Performance Metrics**: Computes weighted R-squared metrics to evaluate factor model performance
+
+## Usage
+
+1. Prepare your data in a parquet file with the required format (see data loading in `lasso_ipcamodel_30.py`)
+2. Run `lasso_ipcamodel_30.py` to:
+   - Perform feature selection
+   - Estimate IPCA factors
+   - Evaluate out-of-sample performance
+3. Results are saved to `lassoIPCA_R2.csv`
+
+## Requirements
+
+- Python 3.x
+- pandas
+- numpy
+- scikit-learn
+- scipy
+
+## References
+Kelly, Pruitt, Su (2019) "Characteristics are Covariances: A Unified Model of Risk and Return" Journal of Financial Economics
