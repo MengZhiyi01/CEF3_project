@@ -1,0 +1,66 @@
+# Portfolio Tree (P-Tree) Implementation
+
+This repository contains Python code for implementing the Portfolio Tree (P-Tree) model, a machine learning approach for constructing optimal investment portfolios. The implementation includes:
+
+1. A recursive tree-building algorithm that splits assets based on characteristics
+2. Mean-variance optimization at each node to maximize Sharpe ratio
+3. Both value-weighted and equal-weighted portfolio construction options
+
+## Files
+
+1. `ptree_30.py` - Main implementation script that:
+   - Loads and preprocesses financial data
+   - Trains the P-Tree model
+   - Handles cross-sectional normalization of features
+   - Manages train/test splits
+
+2. `P_tree.py` - Core P-Tree implementation class with:
+   - Tree growth algorithm with configurable splitting criteria
+   - Portfolio optimization with shrinkage parameter
+   - Detailed logging of splitting decisions
+   - Both simple and detailed growth modes
+
+## Key Features
+
+- **Recursive Portfolio Construction**: Builds a tree of asset portfolios through sequential splits
+- **Sharpe Ratio Optimization**: Selects splits that maximize portfolio Sharpe ratio
+- **Flexible Weighting Schemes**: Supports both value-weighted and equal-weighted portfolios
+- **Feature Standardization**: Includes cross-sectional rank standardization of features
+- **Detailed Logging**: Provides comprehensive logging of the tree-building process
+
+## Usage
+
+1. Prepare your data in a parquet file with required columns:
+   - Asset identifiers ('symbol_id')
+   - Returns ('responder_6' in the example)
+   - Date/time identifiers
+   - Features (named 'feature_00' to 'feature_78' in the example)
+   - Optional weights ('weight' in the example)
+
+2. Run `ptree_30.py` to:
+   - Load and preprocess data
+   - Split into training and test sets
+   - Train the P-Tree model
+   - Generate optimal portfolios
+
+## Configuration Options
+
+Key parameters in `P_tree.py`:
+- `J`: Number of splits (tree depth)
+- `n_min`: Minimum number of assets in a leaf node
+- `gamma`: Shrinkage parameter for covariance matrix
+- `m`: Number of candidate split points to evaluate
+- `if_ratio`: Whether to use proportional minimum node size
+- `is_long`: Whether to enforce long-only portfolios
+- `is_equal`: Whether to use equal weighting
+
+## Requirements
+
+- Python 3.x
+- pandas
+- numpy
+- logging
+
+## References
+
+Cong, Feng, He, and Hou (2025) "Growing the Efficient Frontier on Panel Trees" Journal of Financial Economics
